@@ -1,6 +1,6 @@
 // Verificar si las notificaciones están soportadas en el navegador
 if ('Notification' in window) {
-    // Solicitar permiso para enviar notificaciones si el permiso es "default"
+    // Solicitar permiso para notificaciones
     if (Notification.permission === "default") {
         Notification.requestPermission().then(function(permission) {
             if (permission === "granted") {
@@ -14,11 +14,9 @@ if ('Notification' in window) {
     } else {
         console.log("El permiso para notificaciones ha sido denegado previamente");
     }
-} else {
-    console.log("Este navegador no soporta notificaciones.");
 }
 
-// Registrando el Service Worker (si no está ya registrado)
+// Registrando el Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js').then((registration) => {
@@ -29,22 +27,53 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// Función para registrar datos y enviar notificación
-document.getElementById('registerButton').addEventListener('click', function() {
-    const dataInput = document.getElementById('dataInput').value;
-    if (dataInput) {
-        // Aquí agregarías el código para registrar el dato (puede ser en un array o base de datos)
-        console.log("Dato registrado:", dataInput);
+// Manejo del formulario para registrar datos y notificaciones
+const form = document.getElementById('data-form');
+const input = document.getElementById('data-input');
+const dataList = document.getElementById('data-list');
 
-        // Mostrar una notificación
-        new Notification("¡Nuevo dato registrado!", {
-            body: `Se ha registrado: ${dataInput}`,
-            icon: '/path/to/icon.png' // Opcional, puedes agregar un ícono
+// Al hacer submit en el formulario, registrar el dato y mostrar una notificación
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+
+    const data = input.value.trim(); // Obtener el dato ingresado
+    if (data) {
+        // Registrar el dato
+        const listItem = document.createElement('li');
+        listItem.textContent = data;
+        dataList.appendChild(listItem);
+
+        // Enviar una notificación
+        new Notification("¡Nuevo pendiente registrado!", {
+            body: `Se ha registrado: ${data}`,
+            icon: 'img/icon.png' // Asegúrate de tener este archivo de icono
         });
-        
+
         // Limpiar el campo de entrada
-        document.getElementById('dataInput').value = '';
-    } else {
-        alert("Por favor, ingresa un dato.");
+        input.value = '';
+    }
+});
+
+// Funcionalidad para el botón de instalación de la PWA
+const installButton = document.getElementById('install-button');
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault(); // Prevenir la ventana de instalación predeterminada
+    deferredPrompt = event; // Guardar el evento de instalación
+    installButton.style.display = 'block'; // Mostrar el botón de instalación
+});
+
+installButton.addEventListener('click', () => {
+    if (deferredPrompt) {
+        deferredPrompt.prompt(); // Mostrar el diálogo de instalación
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('La aplicación fue instalada');
+            } else {
+                console.log('La instalación fue rechazada');
+            }
+            deferredPrompt = null; // Limpiar el evento después de la interacción
+        });
     }
 });
