@@ -3,7 +3,7 @@ body {
   font-family: 'Oswald', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f7dfcd; /* Color de fondo crema */
+  background-color: #f7dfcd; /* Fondo crema */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,7 @@ body {
 .container {
   width: 90%;
   max-width: 500px;
-  background-color: #fff; /* Fondo blanco para contraste */
+  background-color: #fff; /* Fondo blanco */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@ body {
 /* Título */
 h1 {
   font-size: 24px;
-  color: #875803; /* Color marrón oscuro */
+  color: #000; /* Negro */
   margin-bottom: 20px;
 }
 
@@ -43,10 +43,18 @@ input[type="text"] {
   outline: none;
 }
 
+/* Botones en la misma fila */
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 button {
-  background-color: #875803; /* Botón marrón oscuro */
+  flex: 1;
+  background-color: #875803; /* Marrón oscuro */
   color: #fff;
-  padding: 10px 15px;
+  padding: 10px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
@@ -56,6 +64,15 @@ button {
 
 button:hover {
   background-color: #6a4302; /* Marrón más oscuro */
+}
+
+/* Botón de instalación */
+#install-button {
+  background-color: #0066ff; /* Azul brillante */
+}
+
+#install-button:hover {
+  background-color: #004ecc; /* Azul más oscuro */
 }
 
 /* Lista de tareas */
@@ -73,23 +90,4 @@ ul li {
   margin-bottom: 10px;
   text-align: left;
   font-size: 16px;
-}
-
-/* Botón de instalación */
-#install-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #0066ff; /* Azul brillante */
-  color: white;
-  padding: 10px 15px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-#install-button:hover {
-  background-color: #004ecc; /* Azul más oscuro */
 }
