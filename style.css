@@ -1,129 +1,95 @@
-/* Reiniciar estilos predeterminados del navegador */
-* {
+/* Estilo general */
+body {
+  font-family: 'Oswald', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* Estilo para el cuerpo de la página */
-body {
-  font-family: 'Rubik', sans-serif;
-  background-color: #f9e6d6;
-  color: #333;
-  padding: 20px;
-  margin: 0;
+  background-color: #f7dfcd; /* Color de fondo crema */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 /* Contenedor principal */
 .container {
+  width: 90%;
   max-width: 500px;
-  margin: 40px auto;
+  background-color: #fff; /* Fondo blanco para contraste */
   padding: 20px;
-  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo para el título principal */
-h1 {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 30px;
 }
 
-/* Estilo para el formulario */
+/* Título */
+h1 {
+  font-size: 24px;
+  color: #875803; /* Color marrón oscuro */
+  margin-bottom: 20px;
+}
+
+/* Formulario */
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  align-items: center;
+  gap: 10px;
 }
 
-/* Estilo para el campo de entrada de tarea */
-#task-input {
-  width: 35%;
-  padding: 12px;
-  font-size: 1rem;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  transition: border-color 0.3s ease;
-}
-
-/* Estilo para el campo de entrada cuando está en focus */
-#task-input:focus {
-  border-color: #7e410b;
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
   outline: none;
 }
 
-/* Estilo para el botón de agregar tarea */
 button {
-  padding: 12px 20px;
-  font-size: 1rem;
-  background-color: #221204;
-  color: white;
+  background-color: #875803; /* Botón marrón oscuro */
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  width: 25%;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #3e7f7a;
+  background-color: #6a4302; /* Marrón más oscuro */
 }
 
-/* Estilo para la lista de tareas */
+/* Lista de tareas */
 ul {
   list-style: none;
   padding: 0;
-  margin-top: 30px;
+  margin: 20px 0 0;
 }
 
-/* Estilo para cada tarea en la lista */
-li {
-  background-color: #fff;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-size: 1.2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-li button {
-  background-color: #ff4d4d;
-  border: none;
-  color: white;
+ul li {
+  background-color: #f7dfcd; /* Fondo crema */
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 16px;
+}
+
+/* Botón de instalación */
+#install-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0066ff; /* Azul brillante */
+  color: white;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-li button:hover {
-  background-color: #e60000;
-}
-
-/* Estilos para el formulario en dispositivos pequeños */
-@media screen and (max-width: 600px) {
-  .container {
-      padding: 15px;
-  }
-
-  h1 {
-      font-size: 2rem;
-  }
-
-  button {
-      font-size: 1rem;
-  }
-
-  #task-input {
-      font-size: 1rem;
-  }
+#install-button:hover {
+  background-color: #004ecc; /* Azul más oscuro */
 }
