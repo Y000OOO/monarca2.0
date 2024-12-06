@@ -3,7 +3,6 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open('app-cache').then((cache) => {
             return cache.addAll([
-                '', // Asegúrate de agregar el ícono si lo necesitas
                 'index.html',
                 'styles.css',
                 'app.js',
@@ -35,17 +34,6 @@ self.addEventListener('push', (event) => {
 
     // Mostrar la notificación cuando se recibe un push
     event.waitUntil(
-        self.registration.showNotification('Notificación de datos', options)
-    );
-});
-
-// Manejo de la acción de hacer clic en la notificación
-self.addEventListener('notificationclick', (event) => {
-    console.log('Notificación clickeada:', event.notification);
-    event.notification.close(); // Cerrar la notificación cuando se hace clic
-
-    // Aquí puedes agregar la lógica para redirigir al usuario si lo deseas
-    event.waitUntil(
-        clients.openWindow('/') // Redirige al usuario a la página principal
+        self.registration.showNotification(data.title, options)
     );
 });
