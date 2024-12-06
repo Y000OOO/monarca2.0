@@ -8,8 +8,8 @@ self.addEventListener('install', (event) => {
                 'styles.css',
                 'app.js',
                 'manifest.json',
-                'icon.png', // Íconos para las notificaciones (si tienes)
-                'badge.png' // Insignia de la notificación
+                'monarca.png', // Íconos para las notificaciones (si tienes)
+                'monarca (1).png' // Insignia de la notificación
             ]);
         })
     );
@@ -29,8 +29,8 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('push', (event) => {
     const options = {
         body: event.data.text(),
-        icon: '/icon.png', // Ruta al ícono de la notificación
-        badge: '/badge.png', // Ruta a la insignia
+        icon: 'monarca.png', // Ruta al ícono de la notificación
+        badge: 'monarca (1).png', // Ruta a la insignia
     };
 
     // Mostrar la notificación cuando se recibe un push
