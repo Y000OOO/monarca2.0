@@ -25,25 +25,17 @@
     <script defer src="app.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Registro de Datos</h1>
-    </header>
-    <main>
-        <form id="register-form">
-            <input type="text" id="data-input" placeholder="Escribe algo..." required>
-            <button type="submit">Registrar</button>
-        </form>
-        <ul id="data-list"></ul>
-    </main>
-
-    <script>
-        // Registrar Service Worker
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js')
-                .then(() => console.log('Service Worker registrado correctamente'))
-                .catch(err => console.error('Error al registrar Service Worker:', err));
-        }
-    </script>
+    <div class="container">
+  <h1>Registro de Datos</h1>
+  <form id="data-form">
+    <input type="text" id="data-input" placeholder="Escribe algo..." required />
+    <div class="button-row">
+      <button type="submit">Registrar</button>
+      <button id="install-button" type="button">Instalar App</button>
+    </div>
+  </form>
+  <ul id="data-list"></ul>
+</div>
 </body>
 </html>
 
