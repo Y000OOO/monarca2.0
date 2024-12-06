@@ -1,6 +1,6 @@
 {
-  "name": "Registro y Notificaciones",
-  "short_name": "Registros",
+  "name": "Tareas Pendientes",
+  "short_name": "Pendientes",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
